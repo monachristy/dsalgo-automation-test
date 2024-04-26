@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name="MultithreadSuite">
+	<test thread-count="5" name="Test">
+		<parameter name="browser" value="chrome" />
+		<classes>
+			<class name="dsalgo.runner.MultithreadTestRunner" />
+		</classes>
+	</test> 
+</suite> 
