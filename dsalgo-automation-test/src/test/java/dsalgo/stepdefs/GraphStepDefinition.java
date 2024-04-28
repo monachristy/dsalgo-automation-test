@@ -27,8 +27,8 @@ public class GraphStepDefinition {
 
 	@Given("User enters the Graph page by clicking get started")
 	public void user_enters_the_graph_page_by_clicking_get_started() throws Exception {
+		driver.get(Constants.DS_HOME_URL);
 		driver.findElement(By.xpath("//a[contains(@href,'graph')and contains(text(),'Get Started')]")).click();
-		Thread.sleep(2000);
 	}
 	
 	@When("User clicks the list of Graph links")
@@ -47,21 +47,16 @@ public class GraphStepDefinition {
 			
 			graphPage.executeRunButton("print(\"hello\");");
 			
-//			driver.findElement(By.xpath("//form[@id='answer_form']/div/div/div/textarea"))
-//					.sendKeys("print(\"hello\");");
-//			driver.findElement(By.xpath("//button[@onclick=\"runit()\"]")).click();
-
-			Thread.sleep(1000);
 			driver.navigate().back();
 			driver.navigate().back();
 
-			Thread.sleep(1000);
 
 		}
 	}
 	
 	@When("The user clicks the {string} button in Graph Panel")
 	public void the_user_clicks_the_button_in_graph_panel(String string) {
+		driver.get(Constants.DS_HOME_URL);
 		graphPage.clickHyperLink("graph");
 	}
 
