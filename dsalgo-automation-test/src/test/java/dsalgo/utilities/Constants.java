@@ -24,5 +24,17 @@ public class Constants {
 	public static String QUEUE_IMPL_ARRAY_URL ="https://dsportalapp.herokuapp.com/queue/Implementation-array/";
 	public static String QUEUE_OP_URL ="https://dsportalapp.herokuapp.com/queue/QueueOp/";
 	public static String QUEUE_PRACYICE_URL ="https://dsportalapp.herokuapp.com/queue/practice";
+	
+	//Array
+	public static String ARRAY_URL ="https://dsportalapp.herokuapp.com/array/";
+	
+	//Linked List
+		public static String LINKED_LIST_URL ="https://dsportalapp.herokuapp.com/linked-list/";
+		
+	//Tree
+	public static String TREE_URL ="https://dsportalapp.herokuapp.com/tree/";
+	
+	//Graph	
+	public static String GRAPH_URL ="https://dsportalapp.herokuapp.com/graph/";
 
 }

@@ -27,9 +27,6 @@ public class StackPage  extends BaseClass {
 	@FindBy(xpath = "//a[@href='stack-applications']")
 	WebElement stackApplications;
 	
-//	@FindBy(xpath = "//a[@href='/stack']")
-//	WebElement dropdown_stack;
-	 
 	WebDriver driver;
 	WebDriverWait wait;
 	

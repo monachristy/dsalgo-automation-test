@@ -13,10 +13,10 @@ import io.cucumber.testng.CucumberOptions;
 
 @CucumberOptions(
 		//plugin = { "pretty", "html:target/dsalgo.html" }, 
-		//tags = "@signin-page ",//or @ds-introduction-page
+		//tags = "@LinkedList ",//or @ds-introduction-page
 		features = { "src/test/resources/features" }, 
 		glue = { "dsalgo.hooks", "dsalgo.stepdefs"},
-		plugin = {"pretty","io.qameta.allure.cucumber7jvm.AllureCucumber7Jvm"},
+		plugin = {"pretty","io.qameta.allure.cucumber7jvm.AllureCucumber7Jvm", "html:target/dsalgo.html" },
 		monochrome = false) 
 
 public class CrossBrowserTestRunner extends AbstractTestNGCucumberTests {

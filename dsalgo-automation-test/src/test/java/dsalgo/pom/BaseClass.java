@@ -86,14 +86,14 @@ public class BaseClass {
 	public void enterPassword(String password){
 		passwordWE.sendKeys(password);
 	}
-	
+
 	public boolean verifyTextPresent(String value) {
 		return driver.getPageSource().contains(value);
 	}
 	
 	public void clickDataStructureDropDown() {
-
-		driver.findElements(By.linkText("Data Structures")).get(0).click();
+		wait.until(ExpectedConditions.visibilityOf(driver.findElements(By.linkText("Data Structures")).get(0))).click();
+		//driver.findElements(By.linkText("Data Structures")).get(0).click();
 
 	}
 	
@@ -114,13 +114,7 @@ public class BaseClass {
 		Actions actions = new Actions(driver); 
 		actions.moveToElement(driver.findElement(By.name("username"))).click().sendKeys("dsalgomarch2024").build().perform();
 		actions.moveToElement(driver.findElement(By.name("password"))).click().sendKeys("Numpy2024").build().perform();
-		
-		//driver.findElement(By.name("username")).sendKeys("dsalgomarch2024");
-		//driver.findElement(By.name("password")).sendKeys("Numpy2024");
 		driver.findElement(By.xpath("//input[@type='submit']")).click();
-		//userNameWE.sendKeys("dsalgomarch2024");
-//		passwordWE.sendKeys("Numpy2024");
-//		wait.until(ExpectedConditions.visibilityOf(submitLoginWE)).click();
 	}
 	
 	public void clickTryButton() {
