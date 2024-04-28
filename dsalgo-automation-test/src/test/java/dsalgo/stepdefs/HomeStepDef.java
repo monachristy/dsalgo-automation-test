@@ -60,8 +60,7 @@ public class HomeStepDef {
 
 	@When("The user clicks the data structure\"dropdown  arrow\"")
 	public void the_user_clicks_the_data_structure_dropdown_arrow() throws InterruptedException {
-		//driver.get(Constants.DS_HOME_URL);
-		loginPage.clickDataStructureDropDown();
+		loginPage.clickDataStructureDropDownInHomePage();
 
 	}
 
@@ -87,7 +86,7 @@ public class HomeStepDef {
 
 	@When("The user selects any data structures item from the drop down without Sign in.")
 	public void the_user_selects_any_data_structures_item_from_the_drop_down_without_sign_in() {
-		loginPage.clickDataStructureDropDown();
+		loginPage.clickDataStructureDropDownInHomePage();
 		loginPage.selectMenu("Arrays");
 	}
 
