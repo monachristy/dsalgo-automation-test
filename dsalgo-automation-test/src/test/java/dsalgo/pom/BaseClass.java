@@ -96,8 +96,8 @@ public class BaseClass {
 		//wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("a.nav-link.dropdown-toggle")));
 //		Actions action = new Actions(driver);
 //		action.moveToElement(driver.findElement(By.xpath("//a[@class='nav-link dropdown-toggle']"))).click().perform();
-		driver.findElement(By.xpath("//a[@class='nav-link dropdown-toggle']")).click();
-		//driver.findElements(By.linkText("Data Structures")).get(0).click();
+		//driver.findElement(By.xpath("//a[@class='nav-link dropdown-toggle']")).click();
+		driver.findElements(By.linkText("Data Structures")).get(0).click();
 
 	}
 	

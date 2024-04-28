@@ -8,6 +8,8 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import dsalgo.utilities.Constants;
+
 public class LoginPage extends BaseClass {
 
 	WebDriver driver;
@@ -57,5 +59,11 @@ public class LoginPage extends BaseClass {
 	public String checkSignIn() {
 
 		return signInLinkWE.getText();
+	}
+	
+	public void clickDataStructureDropDownInHomePage() {
+		driver.get(Constants.DS_HOME_URL);
+		driver.findElements(By.linkText("Data Structures")).get(0).click();
+
 	}
 }
