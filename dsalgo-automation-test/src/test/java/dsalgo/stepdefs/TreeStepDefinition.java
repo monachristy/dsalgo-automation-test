@@ -46,9 +46,17 @@ public class TreeStepDefinition{
 
 	@And("enters the list of Tree links and checking try editor box")
 	public void enters_the_list_of_Tree_links_and_checking_try_editor_box() throws Exception {
-		
-		treePage.waitForStaleElement(By.xpath("/html/body/div[2]"));
+
+		//treePage.waitForStaleElement(By.xpath("/html/body/div[2]"));
 		WebElement tree_element = driver.findElement(By.xpath("/html/body/div[2]"));
+		
+//		try {
+//			tree_element = driver.findElement(By.xpath("/html/body/div[2]"));
+//		} catch(StaleElementReferenceException e) { 
+//			driver.navigate().refresh(); 
+//			tree_element = driver.findElement(By.xpath("/html/body/div[2]"));
+//		}
+		
 		List<WebElement> tree_list = tree_element.findElements(By.tagName("ul"));
 		for (WebElement each_ele : tree_list) {
 			each_ele.click();
@@ -56,6 +64,9 @@ public class TreeStepDefinition{
 			driver.get("https://dsportalapp.herokuapp.com/tryEditor");
 			
 			treePage.executeRunButton("print(\"hello\");");
+
+			driver.navigate().back();
+			driver.navigate().back();
 
 		}
 	}
