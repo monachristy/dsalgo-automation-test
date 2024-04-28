@@ -41,11 +41,12 @@ public class HomeStepDef {
 
 	@Given("The user should open the DS Algo Portal URL in any supported browser")
 	public void the_user_should_open_the_ds_algo_portal_url_in_any_supported_browser() {
-		driver.get(Constants.DS_URL);
+
 	}
 
 	@When("The user clicks the {string} button")
 	public void the_user_clicks_the_button(String string) throws InterruptedException {
+		driver.get(Constants.DS_URL);
 		loginPage.clickGetStartButton();
 	}
 
