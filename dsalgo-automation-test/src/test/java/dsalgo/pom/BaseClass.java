@@ -92,8 +92,9 @@ public class BaseClass {
 	}
 	
 	public void clickDataStructureDropDown() {
-		wait.until(ExpectedConditions.visibilityOf(driver.findElements(By.linkText("Data Structures")).get(0))).click();
-		//driver.findElements(By.linkText("Data Structures")).get(0).click();
+		//wait.until(ExpectedConditions.visibilityOf(driver.findElements(By.linkText("Data Structures")).get(0))).click();
+		//wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("a.nav-link.dropdown-toggle")));
+		driver.findElements(By.linkText("Data Structures")).get(0).click();
 
 	}
 	
