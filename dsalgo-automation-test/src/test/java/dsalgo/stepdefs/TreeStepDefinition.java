@@ -48,16 +48,18 @@ public class TreeStepDefinition{
 	public void enters_the_list_of_Tree_links_and_checking_try_editor_box() throws Exception {
 
 		//treePage.waitForStaleElement(By.xpath("/html/body/div[2]"));
-		WebElement tree_element = driver.findElement(By.xpath("/html/body/div[2]"));
+		WebElement tree_element;// = driver.findElement(By.xpath("/html/body/div[2]"));
+		List<WebElement> tree_list;// = tree_element.findElements(By.tagName("ul"));
+		try {
+			tree_element = driver.findElement(By.xpath("/html/body/div[2]"));
+			tree_list = tree_element.findElements(By.tagName("ul"));
+		} catch(StaleElementReferenceException e) { 
+			driver.navigate().refresh(); 
+			tree_element = driver.findElement(By.xpath("/html/body/div[2]"));
+			tree_list = tree_element.findElements(By.tagName("ul"));
+		}
 		
-//		try {
-//			tree_element = driver.findElement(By.xpath("/html/body/div[2]"));
-//		} catch(StaleElementReferenceException e) { 
-//			driver.navigate().refresh(); 
-//			tree_element = driver.findElement(By.xpath("/html/body/div[2]"));
-//		}
 		
-		List<WebElement> tree_list = tree_element.findElements(By.tagName("ul"));
 		for (WebElement each_ele : tree_list) {
 			each_ele.click();
 			driver.findElement(By.xpath("//a[@class = 'btn btn-info']")).click();
