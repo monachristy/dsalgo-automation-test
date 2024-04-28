@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -38,8 +39,18 @@ public class GraphStepDefinition {
 	
 	@Then("checking the try editor box")
 	public void checking_the_try_editor_box() throws Exception {
-		WebElement graph_element = driver.findElement(By.xpath("/html/body/div[2]"));
-		List<WebElement> graph_list = graph_element.findElements(By.tagName("ul"));
+		WebElement graph_element;
+		List<WebElement> graph_list;
+		try {
+			graph_element = driver.findElement(By.xpath("/html/body/div[2]"));
+			graph_list = graph_element.findElements(By.tagName("ul"));
+		} catch(StaleElementReferenceException e) { 
+			driver.navigate().refresh(); 
+			graph_element = driver.findElement(By.xpath("/html/body/div[2]"));
+			graph_list = graph_element.findElements(By.tagName("ul"));
+		}
+		
+		
 		for (WebElement each_ele : graph_list) {
 			each_ele.click();
 			driver.findElement(By.xpath("//a[@class = 'btn btn-info']")).click();

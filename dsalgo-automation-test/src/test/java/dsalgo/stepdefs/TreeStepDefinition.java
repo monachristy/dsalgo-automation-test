@@ -47,9 +47,8 @@ public class TreeStepDefinition{
 	@And("enters the list of Tree links and checking try editor box")
 	public void enters_the_list_of_Tree_links_and_checking_try_editor_box() throws Exception {
 
-		//treePage.waitForStaleElement(By.xpath("/html/body/div[2]"));
-		WebElement tree_element;// = driver.findElement(By.xpath("/html/body/div[2]"));
-		List<WebElement> tree_list;// = tree_element.findElements(By.tagName("ul"));
+		WebElement tree_element;
+		List<WebElement> tree_list;
 		try {
 			tree_element = driver.findElement(By.xpath("/html/body/div[2]"));
 			tree_list = tree_element.findElements(By.tagName("ul"));
