@@ -4,6 +4,7 @@ import java.time.Duration;
 import java.util.List;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -45,6 +46,8 @@ public class TreeStepDefinition{
 
 	@And("enters the list of Tree links and checking try editor box")
 	public void enters_the_list_of_Tree_links_and_checking_try_editor_box() throws Exception {
+		
+		treePage.waitForStaleElement(By.xpath("/html/body/div[2]"));
 		WebElement tree_element = driver.findElement(By.xpath("/html/body/div[2]"));
 		List<WebElement> tree_list = tree_element.findElements(By.tagName("ul"));
 		for (WebElement each_ele : tree_list) {
