@@ -63,7 +63,7 @@ public class LoginPage extends BaseClass {
 	
 	public void clickDataStructureDropDownInHomePage() {
 		driver.get(Constants.DS_HOME_URL);
-		driver.findElements(By.linkText("Data Structures")).get(0).click();
+		driver.findElement(By.linkText("Data Structures")).click();
 
 	}
 }
