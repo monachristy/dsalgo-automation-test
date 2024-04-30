@@ -23,7 +23,7 @@ public class QueueStepDefinition {
 	QueuePage queuePage = new QueuePage(driver, wait);
 	
 	@Given("The user is on Home page after logged in")
-	public void the_user_is_on_home_page_after_logged_in() {
+	public void the_user_is_on_home_page_after_logged_in() throws InterruptedException {
 		queuePage.login();
 		driver.get(Constants.DS_HOME_URL);
 	}

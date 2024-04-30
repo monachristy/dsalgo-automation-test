@@ -108,8 +108,9 @@ public class BaseClass {
 		link.click();
 	}
 	
-	public void login() {
+	public void login() throws InterruptedException {
 		driver.get(Constants.DS_LOGIN_URL);
+		Thread.sleep(1000);
 		Actions actions = new Actions(driver); 
 		actions.moveToElement(driver.findElement(By.name("username"))).click().sendKeys("dsalgomarch2024").build().perform();
 		actions.moveToElement(driver.findElement(By.name("password"))).click().sendKeys("Numpy2024").build().perform();
