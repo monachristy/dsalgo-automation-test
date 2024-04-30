@@ -53,10 +53,10 @@ public class GraphStepDefinition {
 		
 		
 		for (WebElement each_ele : graph_list) {
-			Thread.sleep(2000);
+			Thread.sleep(1000);
 			each_ele.click();
+			Thread.sleep(1000);
 			driver.findElement(By.xpath("//a[@class = 'btn btn-info']")).click();
-			driver.get("https://dsportalapp.herokuapp.com/tryEditor");
 			
 			graphPage.executeRunButton("print(\"hello\");");
 			
