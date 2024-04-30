@@ -14,7 +14,6 @@ import io.cucumber.testng.AbstractTestNGCucumberTests;
 import io.cucumber.testng.CucumberOptions;
 
 @CucumberOptions(
-		//plugin = { "pretty", "html:target/dsalgo.html" }, 
 		//tags = "@Array or @LinkedList or @home-page",//or @ds-introduction-page
 		features = { "src/test/resources/features" }, 
 		glue = { "dsalgo.hooks", "dsalgo.stepdefs"},

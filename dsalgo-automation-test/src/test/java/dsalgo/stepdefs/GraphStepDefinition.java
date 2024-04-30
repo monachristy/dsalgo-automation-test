@@ -22,7 +22,7 @@ import io.cucumber.java.en.When;
 public class GraphStepDefinition {
 	
 	WebDriver driver = WebDriverFactory.getDriver();
-	WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(6));
+	WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 	GraphPage graphPage=new GraphPage(driver, wait);
 
 
@@ -42,6 +42,7 @@ public class GraphStepDefinition {
 		WebElement graph_element;
 		List<WebElement> graph_list;
 		try {
+			Thread.sleep(2000);
 			graph_element = driver.findElement(By.xpath("/html/body/div[2]"));
 			graph_list = graph_element.findElements(By.tagName("ul"));
 		} catch(StaleElementReferenceException e) { 
@@ -52,6 +53,7 @@ public class GraphStepDefinition {
 		
 		
 		for (WebElement each_ele : graph_list) {
+			Thread.sleep(2000);
 			each_ele.click();
 			driver.findElement(By.xpath("//a[@class = 'btn btn-info']")).click();
 			driver.get("https://dsportalapp.herokuapp.com/tryEditor");

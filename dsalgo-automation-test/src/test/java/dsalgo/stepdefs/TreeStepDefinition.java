@@ -3,6 +3,8 @@ package dsalgo.stepdefs;
 import java.time.Duration;
 import java.util.List;
 
+import javax.annotation.concurrent.ThreadSafe;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebDriver;
@@ -50,6 +52,7 @@ public class TreeStepDefinition{
 		WebElement tree_element;
 		List<WebElement> tree_list;
 		try {
+			Thread.sleep(2000);
 			tree_element = driver.findElement(By.xpath("/html/body/div[2]"));
 			tree_list = tree_element.findElements(By.tagName("ul"));
 		} catch(StaleElementReferenceException e) { 
@@ -60,6 +63,7 @@ public class TreeStepDefinition{
 		
 		
 		for (WebElement each_ele : tree_list) {
+			Thread.sleep(2000);
 			each_ele.click();
 			driver.findElement(By.xpath("//a[@class = 'btn btn-info']")).click();
 			driver.get("https://dsportalapp.herokuapp.com/tryEditor");

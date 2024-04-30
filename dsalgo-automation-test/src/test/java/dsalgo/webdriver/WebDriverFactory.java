@@ -14,9 +14,8 @@ public class WebDriverFactory {
 
 	public static void setDriver() throws Throwable {
 		String browser = ConfigReader.getBrowserType();
-		System.out.println("browser:::::1" + browser);
 		if (browser.equalsIgnoreCase("chrome")) {
-			WebDriverManager.edgedriver().setup();
+			WebDriverManager.chromedriver().setup();
 			driver.set(new ChromeDriver());
 		} else if (browser.equalsIgnoreCase("edge")) {
 			WebDriverManager.edgedriver().setup();

@@ -13,18 +13,6 @@
     	<testng.version>7.9.0</testng.version>
     </properties>
 
-    <dependencyManagement>
-        <dependencies>
-            <dependency>
-                <groupId>io.qameta.allure</groupId>
-                <artifactId>allure-bom</artifactId>
-                <version>${allure.version}</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
-        </dependencies>
-    </dependencyManagement>
-	
 	<dependencies>
 		<dependency>
 			<groupId>org.seleniumhq.selenium</groupId>
@@ -42,12 +30,6 @@
 	      <version>${testng.version}</version>
 	      <scope>test</scope>
 	    </dependency>
-		<!--<dependency>
-			<groupId>io.cucumber</groupId>
-			<artifactId>cucumber-junit</artifactId>
-			<version>7.16.1</version>
-			<scope>test</scope>
-		</dependency>-->
 		<dependency>
 			<groupId>io.cucumber</groupId>
 			<artifactId>cucumber-core</artifactId>
@@ -58,11 +40,6 @@
 			<artifactId>cucumber-testng</artifactId>
 			<version>7.15.0</version>
 		</dependency>
-		<!--<dependency>
-		    <groupId>io.cucumber</groupId>
-		    <artifactId>cucumber-picocontainer</artifactId>
-		    <version>7.16.1</version>
-		</dependency>-->
 		<dependency>
 			<groupId>org.apache.poi</groupId>
 			<artifactId>poi</artifactId>
@@ -115,23 +92,18 @@
 					<suiteXmlFiles>
 						<file>testng.xml</file>
 					</suiteXmlFiles>
-					<!--<argLine>
-			        	-javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"
-			        </argLine>-->
 					<properties>
 						<dataproviderthreadcount>3</dataproviderthreadcount>
 						<parallel>classes</parallel>
 						<threadCount>7</threadCount>
 					</properties>
+					<systemProperties>
+					        <property>
+					              <name>allure.results.directory</name>
+					              <value>${project.build.directory}/allure-results</value>
+					        </property>
+					</systemProperties>
 				</configuration>
-				<!--<dependencies>
-		        <dependency>
-		            <groupId>org.aspectj</groupId>
-		            <artifactId>aspectjweaver</artifactId>
-		            <version>${aspectj.version}</version>
-		            <scope>runtime</scope>
-		          </dependency>
-		        </dependencies>-->
 			</plugin>
 			<plugin>
                 <groupId>io.qameta.allure</groupId>
@@ -143,5 +115,18 @@
             </plugin>
 		</plugins>
 	</build>
+	
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>io.qameta.allure</groupId>
+                <artifactId>allure-bom</artifactId>
+                <version>${allure.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
 	
 </project>
